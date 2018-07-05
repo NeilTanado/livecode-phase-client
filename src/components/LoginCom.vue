@@ -85,7 +85,7 @@
         .then((userToken) => {
           swal("Nice", "You already logged in!", "success");
           localStorage.setItem('token',userToken.data.token)
-          localStorage.setItem('userId',userToken.data.id)
+          localStorage.setItem('userId',userToken.data.userId)
           this.$router.push('/')
         })
         .catch((err) => {

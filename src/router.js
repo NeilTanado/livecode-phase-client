@@ -4,6 +4,7 @@ import Home from './views/Home.vue';
 import About from './views/About.vue';
 import Login from './views/Login.vue';
 import Read from './views/Read.vue';
+import Make from './views/Make.vue';
 
 Vue.use(Router);
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/read',
       name: 'read',
       component: Read
+    },
+    {
+      path: '/make',
+      name: 'make',
+      component: Make
     }
   ]
 });

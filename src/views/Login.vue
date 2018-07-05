@@ -17,10 +17,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .footer{
-    position: absolute;
-    bottom: 0;
-    background-color: #e3f2fd;
-  }
+<style>
+
 </style>

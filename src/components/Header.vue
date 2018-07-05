@@ -5,16 +5,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <router-link class="nav-link" :to="{ path: '/'}">Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+              <router-link class="nav-link" :to="{ path: '/about'}">About</router-link>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-info my-2 my-sm-0 mr-5" type="submit">Search</button>
-          <button class="btn btn-outline-warning my-2 my-sm-0" @click="toLogin()">Login</button>
+          <div v-if="isLogin">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-3" @click="createArticle()">Make Article</button>
+            <button class="btn btn-outline-warning my-2 my-sm-0" @click="logout()">Logout</button>
+          </div>
+          <div v-else>
+            <button class="btn btn-outline-warning my-2 my-sm-0" @click="toLogin()">Login</button>
+          </div>
         </form>
       </div>
     </nav>
@@ -23,10 +27,32 @@
 
 <script>
 export default {
+  data(){
+    return{
+      isLogin : false
+    }
+  },
   methods:{
     toLogin(){
       this.$router.push('/login')
+    },
+    createArticle(){
+      this.$router.push('/make')
+    },
+    cekLogin(){
+      if(localStorage.getItem('token')){
+        this.isLogin = true
+      }else{
+        this.isLogin = false
+      }
+    },
+    logout(){
+      localStorage.clear()
+      this.cekLogin()
     }
+  },
+  created(){
+    this.cekLogin()
   }
 }
 </script>

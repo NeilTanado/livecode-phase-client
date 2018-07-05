@@ -1,20 +1,23 @@
 <template>
-  <div class="about">
+  <div>
     <Header/>
-    <h1>Tugas Akhir Phase 2 Hacktiv8</h1>
-    <h1>Neil Tanado</h1>
+    <MakeArt/>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import MakeArt from '@/components/MakeArt.vue'
+
 
 export default {
   components: {
-    Header
+    Header,
+    MakeArt
   }
 }
 </script>
 
-<style lang="css">
+<style>
+
 </style>
